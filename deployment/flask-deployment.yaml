@@ -1,0 +1,20 @@
+# deployment/flask-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: secure-devsecops-mini-proj
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: secure-devsecops-mini-proj
+  template:
+    metadata:
+      labels:
+        app: secure-devsecops-mini-proj
+    spec:
+      containers:
+      - name: secure-devsecops-mini-proj
+        image: mersedyes/secure-devsecops-mini-proj
+        ports:
+        - containerPort: 5001
